@@ -4,22 +4,42 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<!--        property injection-->
-        <bean id="actor1" class="com.stackroute.domain.Actor">
-            <property name="age" value="10"></property>
-            <property name="name" value="ashok"></property>
-            <property name="gender" value="male"></property>
 
-        </bean>
+    <bean id="actor1" class="com.stackroute.domain.Actor">
+        <constructor-arg index="0" value="varsha"/>
+        <constructor-arg index="1" value="female"/>
+        <constructor-arg index="2" value="25"/>
+    </bean>
+    <bean id="actor2" class="com.stackroute.domain.Actor">
+        <constructor-arg name="name" value="keerthi"/>
+        <constructor-arg name="gender" value="female"/>
+        <constructor-arg name="age" value="24"/>
+    </bean>
+    <bean id="actor3" class="com.stackroute.domain.Actor">
+        <constructor-arg type="java.lang.String" value="jagdeesh"/>
+        <constructor-arg type="java.lang.String" value="male"/>
+        <constructor-arg type="int" value="26"/>
+    </bean>
 
-        <bean id="movie1" class="com.stackroute.domain.Movie">
-            <property name="actor">
-                <list value-type="java.util.List">
-                    <ref bean="actor1"></ref>
-                </list>
-            </property>
-        </bean>
+    <!--    <bean name="movie1, movie2" class="com.stackroute.domain.Movie" scope="prototype">-->
+    <!--        <constructor-arg name="actor">-->
+    <!--            <list value-type="java.util.List">-->
+    <!--                <ref bean ="actor1"/>-->
+    <!--                <ref bean = "actor2"/>-->
+    <!--                <ref bean="actor3"/>-->
+    <!--            </list>-->
+    <!--        </constructor-arg>-->
+    <!--    </bean>-->
 
+    <bean name="movie1, movie2" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg name="actor">
+            <list value-type="java.util.List">
+                <ref bean ="actor1"/>
+                <ref bean = "actor2"/>
+                <ref bean="actor3"/>
+            </list>
+        </constructor-arg>
+    </bean>
 
 
 

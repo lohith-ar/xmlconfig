@@ -16,7 +16,13 @@ public class App
 
 //        BeanFactory bean = new XmlBeanFactory(new ClassPathResource("beans.xml"));
         ApplicationContext bean = new ClassPathXmlApplicationContext("beans.xml");
-        Movie movie = (Movie) bean.getBean("movie1");
-        System.out.println(movie);
+//        Movie movie = (Movie) bean.getBean("movie1");
+//        Movie movie11 = (Movie) bean.getBean("movie1");
+//        System.out.println(movie1==movie11);
+
+
+        Movie movie22 = (Movie) bean.getBean("movie1");
+        Movie movie33 = (Movie) bean.getBean("movie2");
+        System.out.println(movie22==movie33);
     }
 }
